@@ -1,0 +1,20 @@
+<h4 class="text-left">
+    <div class="panel">
+        Click your favorite framework:
+    </div>
+    <li *ngFor="let item of items" value={{item}} (click)="onItemClicked($event,item)" >
+        {{item.name}}
+    </li>
+</h4>
+
+<h4 *ngIf="clicked; then show else warn"></h4>
+
+<ng-template #show>
+    You have selected: <input type="text" [(ngModel)]="clickedItem.name" >
+</ng-template>
+
+<ng-template #warn>
+    <h4 class="text-danger">Please select</h4>
+</ng-template>
+
+<app-news></app-news>
